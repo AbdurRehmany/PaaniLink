@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Zones | PaaniLink</title>
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body>
+    <div class="dash">
+      <aside class="side">
+        <a class="logo" href="../index.html"><i></i>PaaniLink</a>
+        <nav aria-label="Administrator menu">
+          <a href="dashboard.html">Reports</a>
+          <a href="zones.html" class="active">Zones</a>
+          <a href="hydrants.html">Hydrants</a>
+          <a href="tankers.html">Tankers</a>
+          <a href="rates.html">Rates and limits</a>
+          <a href="users.html">Users</a>
+          <a href="../index.html">Back to website</a>
+        </nav>
+        <div class="user">
+          <b id="userName">Loading...</b>
+          <span id="userRole">Administrator</span>
+          <br>
+          <a id="logoutLink" href="../login.html">Log out</a>
+        </div>
+      </aside>
+      <main class="main">
+        <h1>Zones</h1>
+        <p class="welcome">Each zone is served by one or more hydrants.</p>
+        <div class="edit-layout">
+          <section class="panel">
+            <h2 id="zoneFormTitle">Add zone</h2>
+            <form id="zoneForm" action="#" method="post">
+              <input type="hidden" id="zoneId" name="zoneId">
+              <div>
+                <label for="zoneName">Zone name</label>
+                <input id="zoneName" name="zoneName" type="text" placeholder="e.g. Gulshan-e-Iqbal" required minlength="3" maxlength="40">
+                <small class="error" id="zoneNameError"></small>
+              </div>
+              <div>
+                <label for="zoneHydrants">Hydrants serving this zone</label>
+                <select id="zoneHydrants" name="zoneHydrants" multiple required>
+                  <option value="">Loading...</option>
+                </select>
+                <small class="error" id="zoneHydrantsError"></small>
+              </div>
+              <p class="hint">Hold Ctrl (or Cmd) to select more than one.</p>
+              <p class="form-error" id="zoneFormError" role="alert"></p>
+              <button class="btn btn-primary" type="submit">Save zone</button>
+              <button class="btn btn-line" type="reset" id="zoneCancel">Cancel</button>
+            </form>
+          </section>
+          <section class="panel">
+            <h2>All zones</h2>
+            <form class="toolbar" id="zoneFilter">
+              <div>
+                <label class="sr-only" for="zSearch">Search</label>
+                <input id="zSearch" name="zSearch" type="search" placeholder="Search zones">
+              </div>
+              <button class="btn btn-primary btn-sm" type="submit">Apply</button>
+              <button class="btn btn-line btn-sm" type="reset">Reset</button>
+            </form>
+            <div class="table-wrap">
+              <table>
+                <caption class="sr-only">Zones</caption>
+                <thead>
+                  <tr>
+                    <th>Zone</th>
+                    <th>Hydrants</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="zonesBody">
+                  <tr class="state">
+                    <td colspan="3">Loading...</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="pager">
+              <button class="btn btn-line btn-sm" type="button" id="zPrev">Previous</button>
+              <span id="zInfo" aria-live="polite">Page 1</span>
+              <button class="btn btn-line btn-sm" type="button" id="zNext">Next</button>
+            </div>
+          </section>
+        </div>
+        <section class="panel">
+          <h2>Tanker routes in Karachi</h2>
+          <p class="hint">Choose a zone to see the route from its hydrant to the stops its tankers cover.</p>
+          <div class="chips" id="routeChips"></div>
+          <iframe class="map" id="routeMap" data-scope="all" title="Route map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          <p class="hint"><a id="routeLink" href="#" target="_blank" rel="noopener">Open this route in Google Maps</a></p>
+        </section>
+      </main>
+    </div>
+    <div class="toast-area" id="toastArea" aria-live="polite"></div>
+    <script src="../js/data.js"></script>
+    <script src="../js/app.js"></script>
+  </body>
+</html>

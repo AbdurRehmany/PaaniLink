@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Book a tanker | PaaniLink</title>
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body>
+    <div class="dash">
+      <aside class="side">
+        <a class="logo" href="../index.html"><i></i>PaaniLink</a>
+        <nav aria-label="Customer menu">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="book.html" class="active">Book a tanker</a>
+          <a href="bookings.html">My bookings</a>
+          <a href="bills.html">Bills</a>
+          <a href="subsidy.html">Subsidy</a>
+          <a href="../index.html">Back to website</a>
+        </nav>
+        <div class="user">
+          <b id="userName">Loading...</b>
+          <span id="userRole">Customer</span>
+          <br>
+          <a id="logoutLink" href="../login.html">Log out</a>
+        </div>
+      </aside>
+      <main class="main">
+        <h1>Book a tanker</h1>
+        <p class="welcome">Choose a size, date and time slot. The price is calculated for you.</p>
+        <section class="panel">
+          <h2>New booking</h2>
+          <form id="bookingForm" action="#" method="post">
+            <label id="typeLabel">Booking type</label>
+            <div class="radio-row" role="radiogroup" aria-labelledby="typeLabel">
+              <label for="typeCommercial">
+                <input type="radio" id="typeCommercial" name="bookingType" value="commercial" checked>
+                Commercial (full rate)
+              </label>
+              <label for="typeSubsidised">
+                <input type="radio" id="typeSubsidised" name="bookingType" value="subsidised">
+                Subsidised (needs approval)
+              </label>
+            </div>
+            <div class="row">
+              <div>
+                <label for="bookZone">Zone</label>
+                <select id="bookZone" name="bookZone" required>
+                  <option value="">Loading...</option>
+                </select>
+                <small class="error" id="bookZoneError"></small>
+              </div>
+              <div>
+                <label for="bookSize">Tanker size (gallons)</label>
+                <select id="bookSize" name="bookSize" required>
+                  <option value="">Loading...</option>
+                </select>
+                <small class="error" id="bookSizeError"></small>
+              </div>
+            </div>
+            <div>
+              <label for="bookAddress">Delivery address</label>
+              <input id="bookAddress" name="bookAddress" type="text" placeholder="House, street, area" required minlength="8" maxlength="120">
+              <small class="error" id="bookAddressError"></small>
+            </div>
+            <div class="row">
+              <div>
+                <label for="bookDate">Delivery date</label>
+                <input id="bookDate" name="bookDate" type="date" placeholder="" required>
+                <small class="error" id="bookDateError"></small>
+              </div>
+              <div>
+                <label for="bookSlot">Time slot</label>
+                <select id="bookSlot" name="bookSlot" required>
+                  <option value="">Loading...</option>
+                </select>
+                <small class="error" id="bookSlotError"></small>
+              </div>
+            </div>
+            <div>
+              <label for="bookNotes">Notes for the driver (optional)</label>
+              <textarea id="bookNotes" name="bookNotes" placeholder="Gate colour, landmark..." maxlength="200"></textarea>
+              <small class="error" id="bookNotesError"></small>
+            </div>
+            <div class="summary">
+              <dl class="detail-list">
+                <dt>Hydrant</dt>
+                <dd id="sumHydrant">-</dd>
+                <dt>Rate</dt>
+                <dd id="sumRate">-</dd>
+                <dt>Total</dt>
+                <dd id="sumTotal">-</dd>
+                <dt>Subsidy left this month</dt>
+                <dd id="sumLimit">-</dd>
+              </dl>
+            </div>
+            <p class="form-error" id="bookingFormError" role="alert"></p>
+            <button class="btn btn-primary" type="submit">Book tanker</button>
+          </form>
+        </section>
+      </main>
+    </div>
+    <div class="toast-area" id="toastArea" aria-live="polite"></div>
+    <script src="../js/data.js"></script>
+    <script src="../js/app.js"></script>
+  </body>
+</html>

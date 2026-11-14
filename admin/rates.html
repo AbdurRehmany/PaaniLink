@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Rates and limits | PaaniLink</title>
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body>
+    <div class="dash">
+      <aside class="side">
+        <a class="logo" href="../index.html"><i></i>PaaniLink</a>
+        <nav aria-label="Administrator menu">
+          <a href="dashboard.html">Reports</a>
+          <a href="zones.html">Zones</a>
+          <a href="hydrants.html">Hydrants</a>
+          <a href="tankers.html">Tankers</a>
+          <a href="rates.html" class="active">Rates and limits</a>
+          <a href="users.html">Users</a>
+          <a href="../index.html">Back to website</a>
+        </nav>
+        <div class="user">
+          <b id="userName">Loading...</b>
+          <span id="userRole">Administrator</span>
+          <br>
+          <a id="logoutLink" href="../login.html">Log out</a>
+        </div>
+      </aside>
+      <main class="main">
+        <h1>Rates and limits</h1>
+        <p class="welcome">Set the price for each tanker size and the monthly subsidy limit.</p>
+        <div class="edit-layout">
+          <section class="panel">
+            <h2 id="rateFormTitle">Set rate</h2>
+            <form id="rateForm" action="#" method="post">
+              <div>
+                <label for="rateSize">Tanker size (gallons)</label>
+                <select id="rateSize" name="rateSize" required>
+                  <option value="">Select size</option>
+                  <option value="1000">1,000</option>
+                  <option value="3000">3,000</option>
+                  <option value="6000">6,000</option>
+                </select>
+                <small class="error" id="rateSizeError"></small>
+              </div>
+              <div>
+                <label for="rateCommercial">Commercial rate (Rs)</label>
+                <input id="rateCommercial" name="rateCommercial" type="number" placeholder="e.g. 2500" required min="1" max="500000">
+                <small class="error" id="rateCommercialError"></small>
+              </div>
+              <div>
+                <label for="rateSubsidised">Subsidised rate (Rs)</label>
+                <input id="rateSubsidised" name="rateSubsidised" type="number" placeholder="e.g. 800" required min="1" max="500000">
+                <small class="error" id="rateSubsidisedError"></small>
+              </div>
+              <p class="form-error" id="rateFormError" role="alert"></p>
+              <button class="btn btn-primary" type="submit">Save rate</button>
+            </form>
+          </section>
+          <div>
+            <section class="panel">
+              <h2>Current rates</h2>
+              <div class="table-wrap">
+                <table>
+                  <caption class="sr-only">Current rates</caption>
+                  <thead>
+                    <tr>
+                      <th>Size</th>
+                      <th>Commercial</th>
+                      <th>Subsidised</th>
+                      <th>Actions</th>
+                    </tr>
+                  </thead>
+                  <tbody id="ratesBody">
+                    <tr class="state">
+                      <td colspan="4">Loading...</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+            <section class="panel">
+              <h2>Monthly subsidy limit</h2>
+              <form id="limitForm" action="#" method="post">
+                <div>
+                  <label for="limitGallons">Gallons per subsidised customer each month</label>
+                  <input id="limitGallons" name="limitGallons" type="number" placeholder="e.g. 12000" required min="1000" max="100000" step="1000">
+                  <small class="error" id="limitGallonsError"></small>
+                </div>
+                <p class="form-error" id="limitFormError" role="alert"></p>
+                <button class="btn btn-primary" type="submit">Save limit</button>
+              </form>
+            </section>
+          </div>
+        </div>
+      </main>
+    </div>
+    <div class="toast-area" id="toastArea" aria-live="polite"></div>
+    <script src="../js/data.js"></script>
+    <script src="../js/app.js"></script>
+  </body>
+</html>

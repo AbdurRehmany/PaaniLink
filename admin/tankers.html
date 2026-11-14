@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tankers | PaaniLink</title>
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body>
+    <div class="dash">
+      <aside class="side">
+        <a class="logo" href="../index.html"><i></i>PaaniLink</a>
+        <nav aria-label="Administrator menu">
+          <a href="dashboard.html">Reports</a>
+          <a href="zones.html">Zones</a>
+          <a href="hydrants.html">Hydrants</a>
+          <a href="tankers.html" class="active">Tankers</a>
+          <a href="rates.html">Rates and limits</a>
+          <a href="users.html">Users</a>
+          <a href="../index.html">Back to website</a>
+        </nav>
+        <div class="user">
+          <b id="userName">Loading...</b>
+          <span id="userRole">Administrator</span>
+          <br>
+          <a id="logoutLink" href="../login.html">Log out</a>
+        </div>
+      </aside>
+      <main class="main">
+        <h1>Tankers</h1>
+        <p class="welcome">Register tankers and assign them to hydrants.</p>
+        <div class="edit-layout">
+          <section class="panel">
+            <h2 id="tankerFormTitle">Add tanker</h2>
+            <form id="tankerForm" action="#" method="post">
+              <input type="hidden" id="tankerId" name="tankerId">
+              <div>
+                <label for="tankerPlate">Plate number</label>
+                <input id="tankerPlate" name="tankerPlate" type="text" placeholder="e.g. KHI-4821" required pattern="[A-Za-z]{{2,3}}-[0-9]{{3,4}}" maxlength="8" title="Format: ABC-1234">
+                <small class="error" id="tankerPlateError"></small>
+              </div>
+              <div>
+                <label for="tankerSize">Size (gallons)</label>
+                <select id="tankerSize" name="tankerSize" required>
+                  <option value="">Loading...</option>
+                </select>
+                <small class="error" id="tankerSizeError"></small>
+              </div>
+              <div>
+                <label for="tankerHydrant">Hydrant</label>
+                <select id="tankerHydrant" name="tankerHydrant" required>
+                  <option value="">Loading...</option>
+                </select>
+                <small class="error" id="tankerHydrantError"></small>
+              </div>
+              <div>
+                <label for="tankerStatus">Status</label>
+                <select id="tankerStatus" name="tankerStatus" required>
+                  <option value="available">Available</option>
+                  <option value="unavailable">Unavailable</option>
+                </select>
+                <small class="error" id="tankerStatusError"></small>
+              </div>
+              <p class="form-error" id="tankerFormError" role="alert"></p>
+              <button class="btn btn-primary" type="submit">Save tanker</button>
+              <button class="btn btn-line" type="reset" id="tankerCancel">Cancel</button>
+            </form>
+          </section>
+          <section class="panel">
+            <h2>All tankers</h2>
+            <form class="toolbar" id="tankerFilter">
+              <div>
+                <label class="sr-only" for="tSearch">Search</label>
+                <input id="tSearch" name="tSearch" type="search" placeholder="Search by plate">
+              </div>
+              <div>
+                <label class="sr-only" for="tSizeFilter">Size</label>
+                <select id="tSizeFilter" name="tSizeFilter">
+                  <option value="">All sizes</option>
+                </select>
+              </div>
+              <div>
+                <label class="sr-only" for="tHydrantFilter">Hydrant</label>
+                <select id="tHydrantFilter" name="tHydrantFilter">
+                  <option value="">All hydrants</option>
+                </select>
+              </div>
+              <button class="btn btn-primary btn-sm" type="submit">Apply</button>
+              <button class="btn btn-line btn-sm" type="reset">Reset</button>
+            </form>
+            <div class="table-wrap">
+              <table>
+                <caption class="sr-only">Tankers</caption>
+                <thead>
+                  <tr>
+                    <th>Plate</th>
+                    <th>Size</th>
+                    <th>Hydrant</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                  </tr>
+                </thead>
+                <tbody id="tankersBody">
+                  <tr class="state">
+                    <td colspan="5">Loading...</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="pager">
+              <button class="btn btn-line btn-sm" type="button" id="tPrev">Previous</button>
+              <span id="tInfo" aria-live="polite">Page 1</span>
+              <button class="btn btn-line btn-sm" type="button" id="tNext">Next</button>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+    <div class="toast-area" id="toastArea" aria-live="polite"></div>
+    <script src="../js/data.js"></script>
+    <script src="../js/app.js"></script>
+  </body>
+</html>

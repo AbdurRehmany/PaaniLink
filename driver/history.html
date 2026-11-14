@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Trip history | PaaniLink</title>
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body class="driver">
+    <div class="dash">
+      <aside class="side">
+        <a class="logo" href="../index.html"><i></i>PaaniLink</a>
+        <nav aria-label="Driver menu">
+          <a href="trips.html">My trips</a>
+          <a href="history.html" class="active">Trip history</a>
+          <a href="../index.html">Back to website</a>
+        </nav>
+        <div class="user">
+          <b id="userName">Loading...</b>
+          <span id="userRole">Driver</span>
+          <br>
+          <a id="logoutLink" href="../login.html">Log out</a>
+        </div>
+      </aside>
+      <main class="main">
+        <h1>Trip history</h1>
+        <p class="welcome">Your completed and failed trips.</p>
+        <section class="panel">
+          <h2>Past trips</h2>
+          <form class="toolbar" id="histFilter">
+            <div>
+              <label class="sr-only" for="hStatus">Status</label>
+              <select id="hStatus" name="hStatus">
+                <option value="">All</option>
+                <option value="delivered">Delivered</option>
+                <option value="confirmed">Confirmed</option>
+                <option value="failed">Failed</option>
+              </select>
+            </div>
+            <div>
+              <label class="sr-only" for="hSort">Sort by</label>
+              <select id="hSort" name="hSort">
+                <option value="date-desc">Newest first</option>
+                <option value="date-asc">Oldest first</option>
+              </select>
+            </div>
+            <button class="btn btn-primary btn-sm" type="submit">Apply</button>
+            <button class="btn btn-line btn-sm" type="reset">Reset</button>
+          </form>
+          <div class="table-wrap">
+            <table>
+              <caption class="sr-only">Trip history</caption>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Date</th>
+                  <th>Address</th>
+                  <th>Size</th>
+                  <th>Status</th>
+                  <th>Reason</th>
+                </tr>
+              </thead>
+              <tbody id="historyBody">
+                <tr class="state">
+                  <td colspan="6">Loading...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="pager">
+            <button class="btn btn-line btn-sm" type="button" id="hPrev">Previous</button>
+            <span id="hInfo" aria-live="polite">Page 1</span>
+            <button class="btn btn-line btn-sm" type="button" id="hNext">Next</button>
+          </div>
+        </section>
+      </main>
+    </div>
+    <div class="toast-area" id="toastArea" aria-live="polite"></div>
+    <script src="../js/data.js"></script>
+    <script src="../js/app.js"></script>
+  </body>
+</html>

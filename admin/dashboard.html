@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Administrator reports | PaaniLink</title>
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body>
+    <div class="dash">
+      <aside class="side">
+        <a class="logo" href="../index.html"><i></i>PaaniLink</a>
+        <nav aria-label="Administrator menu">
+          <a href="dashboard.html" class="active">Reports</a>
+          <a href="zones.html">Zones</a>
+          <a href="hydrants.html">Hydrants</a>
+          <a href="tankers.html">Tankers</a>
+          <a href="rates.html">Rates and limits</a>
+          <a href="users.html">Users</a>
+          <a href="../index.html">Back to website</a>
+        </nav>
+        <div class="user">
+          <b id="userName">Loading...</b>
+          <span id="userRole">Administrator</span>
+          <br>
+          <a id="logoutLink" href="../login.html">Log out</a>
+        </div>
+      </aside>
+      <main class="main">
+        <h1>City reports</h1>
+        <p class="welcome">Bookings, water use and revenue across the city.</p>
+        <form class="toolbar" id="reportFilter">
+          <div>
+            <label for="repFrom" class="sr-only">From date</label>
+            <input id="repFrom" name="repFrom" type="date">
+          </div>
+          <div>
+            <label for="repTo" class="sr-only">To date</label>
+            <input id="repTo" name="repTo" type="date">
+          </div>
+          <button class="btn btn-primary btn-sm" type="submit">Apply</button>
+          <button class="btn btn-line btn-sm" type="reset">Reset</button>
+        </form>
+        <div class="grid g4 stats">
+          <div class="stat">
+            <span>Bookings</span>
+            <b id="statBookings">-</b>
+          </div>
+          <div class="stat">
+            <span>Revenue (Rs)</span>
+            <b id="statRevenue">-</b>
+          </div>
+          <div class="stat">
+            <span>Gallons delivered</span>
+            <b id="statGallons">-</b>
+          </div>
+          <div class="stat">
+            <span>Subsidised bookings</span>
+            <b id="statSubsidised">-</b>
+          </div>
+        </div>
+        <div class="grid g2">
+          <section class="panel">
+            <h2>Bookings by status</h2>
+            <div id="statusBars">
+              <p class="hint">Loading...</p>
+            </div>
+          </section>
+          <section class="panel">
+            <h2>Hydrant quota use</h2>
+            <div id="hydrantUsage">
+              <p class="hint">Loading...</p>
+            </div>
+          </section>
+        </div>
+        <section class="panel">
+          <h2>Bookings by zone</h2>
+          <div class="table-wrap">
+            <table>
+              <caption class="sr-only">Bookings by zone</caption>
+              <thead>
+                <tr>
+                  <th>Zone</th>
+                  <th>Bookings</th>
+                  <th>Gallons</th>
+                  <th>Revenue (Rs)</th>
+                </tr>
+              </thead>
+              <tbody id="zoneReportBody">
+                <tr class="state">
+                  <td colspan="4">Loading...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+    <div class="toast-area" id="toastArea" aria-live="polite"></div>
+    <script src="../js/data.js"></script>
+    <script src="../js/app.js"></script>
+  </body>
+</html>

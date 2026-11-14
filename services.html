@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Services | PaaniLink</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <header class="nav">
+      <div class="container">
+        <a class="logo" href="index.html"><i></i>PaaniLink</a>
+        <input type="checkbox" id="navtoggle" aria-label="Toggle menu">
+        <label class="burger" for="navtoggle">&#9776;</label>
+        <ul class="menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html" class="active">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a class="btn btn-outline" href="login.html">Login</a></li>
+          <li><a class="btn btn-primary" href="signup.html">Sign up</a></li>
+        </ul>
+      </div>
+    </header>
+    <section class="page-head">
+      <div class="container">
+        <h1>Our services</h1>
+        <p>Booking, approval, dispatch and delivery in one place.</p>
+      </div>
+    </section>
+    <section class="block">
+      <div class="container">
+        <div class="grid g3">
+          <div class="card">
+            <div class="icon">🛢️</div>
+            <h3>Commercial booking</h3>
+            <p>Paid at the full rate. Approved automatically.</p>
+          </div>
+          <div class="card">
+            <div class="icon">🏷️</div>
+            <h3>Subsidised booking</h3>
+            <p>For registered households, hospitals and mosques. Approved by a zone officer and limited each month.</p>
+          </div>
+          <div class="card">
+            <div class="icon">📍</div>
+            <h3>Delivery tracking</h3>
+            <p>Follow your booking from approval to dispatch, arrival and delivery.</p>
+          </div>
+          <div class="card">
+            <div class="icon">🧾</div>
+            <h3>Online bills</h3>
+            <p>A bill is created for every confirmed delivery.</p>
+          </div>
+          <div class="card">
+            <div class="icon">⚠️</div>
+            <h3>Disputes</h3>
+            <p>Report a problem with a delivery and a zone officer will resolve it.</p>
+          </div>
+          <div class="card">
+            <div class="icon">📞</div>
+            <h3>Support</h3>
+            <p>Message our team from the contact page.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="block white">
+      <div class="container">
+        <div class="head">
+          <h2 class="title">Rates</h2>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <caption class="sr-only">Tanker rates by size</caption>
+            <thead>
+              <tr>
+                <th>Tanker size</th>
+                <th>Commercial rate</th>
+                <th>Subsidised rate</th>
+              </tr>
+            </thead>
+            <tbody id="rateTableBody">
+              <tr class="state">
+                <td colspan="3">Loading...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="hint">Each subsidised customer has a monthly limit.</p>
+      </div>
+    </section>
+    <div class="toast-area" id="toastArea" aria-live="polite"></div>
+    <footer class="footer">
+      <div class="container">
+        <div class="grid">
+          <div>
+            <a class="logo" href="index.html"><i></i>PaaniLink</a>
+            <p>Water tanker booking, approval and dispatch across the city, run with the City Water Board.</p>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <div>
+            <h4>Account</h4>
+            <a href="login.html">Login</a>
+            <a href="signup.html">Sign up</a>
+          </div>
+          <div>
+            <h4>Contact</h4>
+            <a href="contact.html">support@paanilink.pk</a>
+            <a href="contact.html">Karachi, Pakistan</a>
+          </div>
+        </div>
+        <div class="copy">&copy; 2026 PaaniLink. All rights reserved.</div>
+      </div>
+    </footer>
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

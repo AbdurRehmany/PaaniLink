@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bills | PaaniLink</title>
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body>
+    <div class="dash">
+      <aside class="side">
+        <a class="logo" href="../index.html"><i></i>PaaniLink</a>
+        <nav aria-label="Customer menu">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="book.html">Book a tanker</a>
+          <a href="bookings.html">My bookings</a>
+          <a href="bills.html" class="active">Bills</a>
+          <a href="subsidy.html">Subsidy</a>
+          <a href="../index.html">Back to website</a>
+        </nav>
+        <div class="user">
+          <b id="userName">Loading...</b>
+          <span id="userRole">Customer</span>
+          <br>
+          <a id="logoutLink" href="../login.html">Log out</a>
+        </div>
+      </aside>
+      <main class="main">
+        <h1>Bills</h1>
+        <p class="welcome">A bill is created for every confirmed delivery.</p>
+        <div class="grid g3 stats">
+          <div class="stat">
+            <span>Unpaid total</span>
+            <b id="billUnpaid">-</b>
+          </div>
+          <div class="stat">
+            <span>Paid total</span>
+            <b id="billPaid">-</b>
+          </div>
+          <div class="stat">
+            <span>Bills</span>
+            <b id="billCount">-</b>
+          </div>
+        </div>
+        <section class="panel">
+          <h2>Your bills</h2>
+          <form class="toolbar" id="billFilter">
+            <div>
+              <label class="sr-only" for="billStatus">Status</label>
+              <select id="billStatus" name="billStatus">
+                <option value="">All bills</option>
+                <option value="unpaid">Unpaid</option>
+                <option value="paid">Paid</option>
+              </select>
+            </div>
+            <div>
+              <label class="sr-only" for="billSort">Sort by</label>
+              <select id="billSort" name="billSort">
+                <option value="date-desc">Newest first</option>
+                <option value="date-asc">Oldest first</option>
+                <option value="amount-desc">Amount high to low</option>
+                <option value="amount-asc">Amount low to high</option>
+              </select>
+            </div>
+            <button class="btn btn-primary btn-sm" type="submit">Apply</button>
+            <button class="btn btn-line btn-sm" type="reset">Reset</button>
+          </form>
+          <div class="table-wrap">
+            <table>
+              <caption class="sr-only">Bills</caption>
+              <thead>
+                <tr>
+                  <th>Bill</th>
+                  <th>Booking</th>
+                  <th>Date</th>
+                  <th>Amount</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="billsBody">
+                <tr class="state">
+                  <td colspan="6">Loading...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="pager">
+            <button class="btn btn-line btn-sm" type="button" id="billPrev">Previous</button>
+            <span id="billInfo" aria-live="polite">Page 1</span>
+            <button class="btn btn-line btn-sm" type="button" id="billNext">Next</button>
+          </div>
+        </section>
+      </main>
+    </div>
+    <div class="toast-area" id="toastArea" aria-live="polite"></div>
+    <script src="../js/data.js"></script>
+    <script src="../js/app.js"></script>
+  </body>
+</html>

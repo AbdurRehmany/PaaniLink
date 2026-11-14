@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Disputes | PaaniLink</title>
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body>
+    <div class="dash">
+      <aside class="side">
+        <a class="logo" href="../index.html"><i></i>PaaniLink</a>
+        <nav aria-label="Zone officer menu">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="subsidy.html">Subsidy applications</a>
+          <a href="bookings.html">Zone bookings</a>
+          <a href="disputes.html" class="active">Disputes</a>
+          <a href="../index.html">Back to website</a>
+        </nav>
+        <div class="user">
+          <b id="userName">Loading...</b>
+          <span id="userRole">Zone officer</span>
+          <br>
+          <a id="logoutLink" href="../login.html">Log out</a>
+        </div>
+      </aside>
+      <main class="main">
+        <h1>Disputes</h1>
+        <p class="welcome">Review customer disputes and decide the outcome.</p>
+        <section class="panel">
+          <h2>Disputes in your zone</h2>
+          <form class="toolbar" id="dispFilter">
+            <div>
+              <label class="sr-only" for="dStatus">Status</label>
+              <select id="dStatus" name="dStatus">
+                <option value="">All disputes</option>
+                <option value="open">Open</option>
+                <option value="resolved">Resolved</option>
+              </select>
+            </div>
+            <div>
+              <label class="sr-only" for="dSort">Sort by</label>
+              <select id="dSort" name="dSort">
+                <option value="date-desc">Newest first</option>
+                <option value="date-asc">Oldest first</option>
+              </select>
+            </div>
+            <button class="btn btn-primary btn-sm" type="submit">Apply</button>
+            <button class="btn btn-line btn-sm" type="reset">Reset</button>
+          </form>
+          <div class="table-wrap">
+            <table>
+              <caption class="sr-only">Disputes</caption>
+              <thead>
+                <tr>
+                  <th>Booking</th>
+                  <th>Customer</th>
+                  <th>Reason</th>
+                  <th>Raised</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="disputesBody">
+                <tr class="state">
+                  <td colspan="6">Loading...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="pager">
+            <button class="btn btn-line btn-sm" type="button" id="dPrev">Previous</button>
+            <span id="dInfo" aria-live="polite">Page 1</span>
+            <button class="btn btn-line btn-sm" type="button" id="dNext">Next</button>
+          </div>
+        </section>
+        <dialog id="resolveDialog" aria-labelledby="resolveDialogTitle">
+          <h2 id="resolveDialogTitle">Resolve dispute</h2>
+          <form id="resolveForm" action="#" method="post">
+            <div>
+              <label for="resolveOutcome">Outcome</label>
+              <select id="resolveOutcome" name="resolveOutcome" required>
+                <option value="">Select outcome</option>
+                <option value="re-dispatch">Re-dispatch the booking</option>
+                <option value="waive-bill">Waive the bill</option>
+                <option value="reject-dispute">Reject the dispute</option>
+              </select>
+              <small class="error" id="resolveOutcomeError"></small>
+            </div>
+            <div>
+              <label for="resolveNote">Note to customer</label>
+              <textarea id="resolveNote" name="resolveNote" placeholder="Explain the decision" required minlength="5" maxlength="200"></textarea>
+              <small class="error" id="resolveNoteError"></small>
+            </div>
+            <p class="form-error" id="resolveError" role="alert"></p>
+            <div class="dialog-actions">
+              <button class="btn btn-line" type="submit" formmethod="dialog" formnovalidate>Cancel</button>
+              <button class="btn btn-primary" type="submit">Resolve</button>
+            </div>
+          </form>
+        </dialog>
+      </main>
+    </div>
+    <div class="toast-area" id="toastArea" aria-live="polite"></div>
+    <script src="../js/data.js"></script>
+    <script src="../js/app.js"></script>
+  </body>
+</html>

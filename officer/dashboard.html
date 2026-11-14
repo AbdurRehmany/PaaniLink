@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Zone officer dashboard | PaaniLink</title>
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body>
+    <div class="dash">
+      <aside class="side">
+        <a class="logo" href="../index.html"><i></i>PaaniLink</a>
+        <nav aria-label="Zone officer menu">
+          <a href="dashboard.html" class="active">Dashboard</a>
+          <a href="subsidy.html">Subsidy applications</a>
+          <a href="bookings.html">Zone bookings</a>
+          <a href="disputes.html">Disputes</a>
+          <a href="../index.html">Back to website</a>
+        </nav>
+        <div class="user">
+          <b id="userName">Loading...</b>
+          <span id="userRole">Zone officer</span>
+          <br>
+          <a id="logoutLink" href="../login.html">Log out</a>
+        </div>
+      </aside>
+      <main class="main">
+        <h1>Dashboard</h1>
+        <p class="welcome">Work waiting in your zone.</p>
+        <div class="grid g4 stats">
+          <div class="stat">
+            <span>Subsidy applications</span>
+            <b id="statSubsidy">-</b>
+          </div>
+          <div class="stat">
+            <span>Bookings to approve</span>
+            <b id="statApprovals">-</b>
+          </div>
+          <div class="stat">
+            <span>Open disputes</span>
+            <b id="statDisputes">-</b>
+          </div>
+          <div class="stat">
+            <span>Bookings today</span>
+            <b id="statToday">-</b>
+          </div>
+        </div>
+        <section class="panel">
+          <h2>Needs attention</h2>
+          <div class="table-wrap">
+            <table>
+              <caption class="sr-only">Items needing attention</caption>
+              <thead>
+                <tr>
+                  <th>Item</th>
+                  <th>Customer</th>
+                  <th>Submitted</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="attentionBody">
+                <tr class="state">
+                  <td colspan="4">Loading...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+    <div class="toast-area" id="toastArea" aria-live="polite"></div>
+    <script src="../js/data.js"></script>
+    <script src="../js/app.js"></script>
+  </body>
+</html>

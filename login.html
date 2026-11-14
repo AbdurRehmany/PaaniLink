@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login | PaaniLink</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <header class="nav">
+      <div class="container">
+        <a class="logo" href="index.html"><i></i>PaaniLink</a>
+        <input type="checkbox" id="navtoggle" aria-label="Toggle menu">
+        <label class="burger" for="navtoggle">&#9776;</label>
+        <ul class="menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a class="btn btn-outline" href="login.html">Login</a></li>
+          <li><a class="btn btn-primary" href="signup.html">Sign up</a></li>
+        </ul>
+      </div>
+    </header>
+    <main class="auth">
+      <div class="auth-side">
+        <h1>Welcome back</h1>
+        <p>Log in to book tankers, manage dispatch or follow your trips.</p>
+        <ul class="checks">
+          <li>Clear rates before you book</li>
+          <li>Track every delivery</li>
+          <li>Pay bills online</li>
+        </ul>
+      </div>
+      <div class="auth-form">
+        <div class="auth-box">
+          <h2>Log in</h2>
+          <p>Enter your details to continue.</p>
+          <form id="loginForm" action="#" method="post">
+            <div>
+              <label for="loginPhone">Phone number</label>
+              <input id="loginPhone" name="loginPhone" type="tel" placeholder="03XXXXXXXXX" required inputmode="numeric" pattern="03[0-9]{9}" maxlength="11" title="Format: 03XXXXXXXXX" autocomplete="username">
+              <small class="error" id="loginPhoneError"></small>
+            </div>
+            <div>
+              <label for="loginPassword">Password</label>
+              <input id="loginPassword" name="loginPassword" type="password" placeholder="Your password" required minlength="8" autocomplete="current-password">
+              <small class="error" id="loginPasswordError"></small>
+            </div>
+            <p class="form-error" id="loginFormError" role="alert"></p>
+            <button class="btn btn-primary btn-block" type="submit">Log in</button>
+          </form>
+          <p class="auth-foot">New to PaaniLink? <a href="signup.html">Create an account</a></p>
+          <div class="preview">
+            <p>Preview only: open any dashboard directly.</p>
+            <div class="role-links">
+              <a href="customer/dashboard.html">Customer</a>
+              <a href="officer/dashboard.html">Zone officer</a>
+              <a href="operator/dashboard.html">Hydrant operator</a>
+              <a href="driver/trips.html">Driver</a>
+              <a href="admin/dashboard.html">Administrator</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <div class="toast-area" id="toastArea" aria-live="polite"></div>
+  </body>
+</html>

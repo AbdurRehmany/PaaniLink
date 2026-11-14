@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home | PaaniLink</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <header class="nav">
+      <div class="container">
+        <a class="logo" href="index.html"><i></i>PaaniLink</a>
+        <input type="checkbox" id="navtoggle" aria-label="Toggle menu">
+        <label class="burger" for="navtoggle">&#9776;</label>
+        <ul class="menu">
+          <li><a href="index.html" class="active">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a class="btn btn-outline" href="login.html">Login</a></li>
+          <li><a class="btn btn-primary" href="signup.html">Sign up</a></li>
+        </ul>
+      </div>
+    </header>
+    <section class="hero">
+      <div class="container">
+        <div>
+          <h1>Water at your door, when you need it.</h1>
+          <p>Book a tanker from an authorised hydrant, follow it from booking to delivery and pay your bill online. Subsidised rates are available for registered households, hospitals and mosques.</p>
+          <div class="actions">
+            <a class="btn btn-aqua" href="login.html">Order a tanker</a>
+            <a class="btn btn-outline" href="services.html">See rates</a>
+          </div>
+          <p class="hero-note">Run with the City Water Board.</p>
+        </div>
+        <div class="quote">
+          <h3>Price calculator</h3>
+          <p class="sub">Check the price before you book.</p>
+          <form id="calcForm">
+            <div>
+              <label for="calcSize">Tanker size</label>
+              <select id="calcSize" name="calcSize">
+                <option value="">Loading...</option>
+              </select>
+              <small class="error" id="calcSizeError"></small>
+            </div>
+            <div>
+              <label for="calcType">Booking type</label>
+              <select id="calcType" name="calcType">
+                <option value="commercial">Commercial</option>
+                <option value="subsidised">Subsidised</option>
+              </select>
+              <small class="error" id="calcTypeError"></small>
+            </div>
+            <div class="total">
+              <span>Estimated price</span>
+              <b id="calcTotal">Rs -</b>
+            </div>
+          </form>
+          <a class="btn btn-primary btn-block" href="login.html">Book this tanker</a>
+        </div>
+      </div>
+      <svg class="wave" viewbox="0 0 1440 90" preserveaspectratio="none" aria-hidden="true">
+        <path fill="#F3F7F8" d="M0,50 C240,100 480,0 720,40 C960,80 1200,10 1440,50 L1440,90 L0,90 Z"></path>
+      </svg>
+    </section>
+    <section class="block">
+      <div class="container">
+        <div class="head">
+          <h2 class="title">How it works</h2>
+          <p class="lead">Every booking is checked, approved where needed, dispatched and confirmed.</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <h3>Register</h3>
+            <p>Sign up with your CNIC, phone and address. Your address decides your zone.</p>
+          </div>
+          <div class="step">
+            <h3>Book</h3>
+            <p>Choose a size, date and time slot. Commercial bookings are approved automatically.</p>
+          </div>
+          <div class="step">
+            <h3>Approval and dispatch</h3>
+            <p>Subsidised bookings are approved by a zone officer. The hydrant operator assigns a tanker and driver.</p>
+          </div>
+          <div class="step">
+            <h3>Deliver and confirm</h3>
+            <p>The driver delivers. You confirm or dispute the delivery and pay the bill.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="block white">
+      <div class="container">
+        <div class="head center">
+          <h2 class="title">Tanker rates</h2>
+          <p class="lead">Rates are set by the Water Board. Subsidised bookings cost much less.</p>
+        </div>
+        <div class="grid g3" id="ratesGrid">
+          
+        </div>
+      </div>
+    </section>
+    <section class="block">
+      <div class="container">
+        <div class="head">
+          <h2 class="title">Zones we serve</h2>
+          <p class="lead">Each zone is served by one or more hydrants.</p>
+        </div>
+        <div class="chips" id="zoneChips"></div>
+        <iframe class="map" id="zoneMap" title="Zone map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      </div>
+    </section>
+    <section class="stats-band">
+      <div class="container">
+        <div class="grid g4">
+          <div>
+            <b id="statCustomers">-</b>
+            <span>Registered customers</span>
+          </div>
+          <div>
+            <b id="statBookings">-</b>
+            <span>Bookings made</span>
+          </div>
+          <div>
+            <b id="statDeliveries">-</b>
+            <span>Deliveries confirmed</span>
+          </div>
+          <div>
+            <b id="statHydrants">-</b>
+            <span>Active hydrants</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="block">
+      <div class="container" style="max-width:780px">
+        <div class="head center">
+          <h2 class="title">Common questions</h2>
+        </div>
+        <details>
+          <summary>Who can get a subsidised tanker?</summary>
+          <p>Registered low income households, hospitals and mosques. Apply from your dashboard and a zone officer will verify your proof details.</p>
+        </details>
+        <details>
+          <summary>Is there a limit on subsidised bookings?</summary>
+          <p>Yes. Each subsidised customer has a monthly limit. Your dashboard shows how much you have used.</p>
+        </details>
+        <details>
+          <summary>What happens if the delivery fails?</summary>
+          <p>The driver records a reason, such as house locked or road blocked, and the booking is marked failed so it can be followed up.</p>
+        </details>
+        <details>
+          <summary>What if I am not happy with a delivery?</summary>
+          <p>Raise a dispute from your bookings. A zone officer will review it and decide the outcome.</p>
+        </details>
+      </div>
+    </section>
+    <section class="block white">
+      <div class="container">
+        <div class="cta">
+          <h2>Ready to book your first tanker?</h2>
+          <p>Create a free account and book in under a minute.</p>
+          <a class="btn btn-aqua" href="signup.html">Create account</a>
+        </div>
+      </div>
+    </section>
+    <div class="toast-area" id="toastArea" aria-live="polite"></div>
+    <footer class="footer">
+      <div class="container">
+        <div class="grid">
+          <div>
+            <a class="logo" href="index.html"><i></i>PaaniLink</a>
+            <p>Water tanker booking, approval and dispatch across the city, run with the City Water Board.</p>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <div>
+            <h4>Account</h4>
+            <a href="login.html">Login</a>
+            <a href="signup.html">Sign up</a>
+          </div>
+          <div>
+            <h4>Contact</h4>
+            <a href="contact.html">support@paanilink.pk</a>
+            <a href="contact.html">Karachi, Pakistan</a>
+          </div>
+        </div>
+        <div class="copy">&copy; 2026 PaaniLink. All rights reserved.</div>
+      </div>
+    </footer>
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

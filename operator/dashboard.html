@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hydrant operator dashboard | PaaniLink</title>
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body>
+    <div class="dash">
+      <aside class="side">
+        <a class="logo" href="../index.html"><i></i>PaaniLink</a>
+        <nav aria-label="Hydrant operator menu">
+          <a href="dashboard.html" class="active">Dashboard</a>
+          <a href="bookings.html">Bookings</a>
+          <a href="resources.html">Tankers and hydrant</a>
+          <a href="../index.html">Back to website</a>
+        </nav>
+        <div class="user">
+          <b id="userName">Loading...</b>
+          <span id="userRole">Hydrant operator</span>
+          <br>
+          <a id="logoutLink" href="../login.html">Log out</a>
+        </div>
+      </aside>
+      <main class="main">
+        <h1>Dashboard</h1>
+        <p class="welcome">Your hydrant today.</p>
+        <div class="grid g4 stats">
+          <div class="stat">
+            <span>Approved bookings</span>
+            <b id="statApproved">-</b>
+          </div>
+          <div class="stat">
+            <span>Trips today</span>
+            <b id="statTrips">-</b>
+          </div>
+          <div class="stat">
+            <span>Tankers available</span>
+            <b id="statTankers">-</b>
+          </div>
+          <div class="stat">
+            <span>Quota left (gallons)</span>
+            <b id="statQuotaLeft">-</b>
+          </div>
+        </div>
+        <section class="panel">
+          <h2 id="hydrantName">Hydrant</h2>
+          <div class="meter-label">
+            <span>Daily quota used</span>
+            <span id="quotaText">-</span>
+          </div>
+          <div class="meter"><i id="quotaBar"></i></div>
+          <p class="hint" id="hydrantHours">Loading...</p>
+        </section>
+        <section class="panel">
+          <h2>Today's trips</h2>
+          <div class="table-wrap">
+            <table>
+              <caption class="sr-only">Today's trips</caption>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Slot</th>
+                  <th>Size</th>
+                  <th>Tanker</th>
+                  <th>Driver</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody id="todayBody">
+                <tr class="state">
+                  <td colspan="6">Loading...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section class="panel">
+          <h2>Route map</h2>
+          <p class="hint">Route from your hydrant to the stops its tankers cover.</p>
+          <iframe class="map" id="routeMap" data-scope="hydrant" title="Route map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          <p class="hint"><a id="routeLink" href="#" target="_blank" rel="noopener">Open this route in Google Maps</a></p>
+        </section>
+      </main>
+    </div>
+    <div class="toast-area" id="toastArea" aria-live="polite"></div>
+    <script src="../js/data.js"></script>
+    <script src="../js/app.js"></script>
+  </body>
+</html>

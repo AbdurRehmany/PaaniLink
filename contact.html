@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact | PaaniLink</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <header class="nav">
+      <div class="container">
+        <a class="logo" href="index.html"><i></i>PaaniLink</a>
+        <input type="checkbox" id="navtoggle" aria-label="Toggle menu">
+        <label class="burger" for="navtoggle">&#9776;</label>
+        <ul class="menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html" class="active">Contact</a></li>
+          <li><a class="btn btn-outline" href="login.html">Login</a></li>
+          <li><a class="btn btn-primary" href="signup.html">Sign up</a></li>
+        </ul>
+      </div>
+    </header>
+    <section class="page-head">
+      <div class="container">
+        <h1>Contact us</h1>
+        <p>Questions, feedback or a delivery issue? Send us a message.</p>
+      </div>
+    </section>
+    <section class="block">
+      <div class="container split" style="align-items:start">
+        <div class="card contact-info">
+          <h3 style="margin-bottom:18px">Get in touch</h3>
+          <p><b>Address</b>Office address, Karachi, Pakistan</p>
+          <p><b>Email</b>support@paanilink.pk</p>
+          <p><b>Hours</b>Monday to Saturday, 9am to 8pm</p>
+        </div>
+        <div class="card">
+          <h3>Send a message</h3>
+          <form id="contactForm" action="#" method="post">
+            <div class="row">
+              <div>
+                <label for="contactName">Full name</label>
+                <input id="contactName" name="contactName" type="text" placeholder="Your name" required minlength="3" maxlength="60" autocomplete="name">
+                <small class="error" id="contactNameError"></small>
+              </div>
+              <div>
+                <label for="contactPhone">Phone (optional)</label>
+                <input id="contactPhone" name="contactPhone" type="tel" placeholder="03XXXXXXXXX" inputmode="numeric" pattern="03[0-9]{{9}}" maxlength="11" title="Format: 03XXXXXXXXX">
+                <small class="error" id="contactPhoneError"></small>
+              </div>
+            </div>
+            <div>
+              <label for="contactEmail">Email</label>
+              <input id="contactEmail" name="contactEmail" type="email" placeholder="you@example.com" required autocomplete="email">
+              <small class="error" id="contactEmailError"></small>
+            </div>
+            <div>
+              <label for="contactMessage">Message</label>
+              <textarea id="contactMessage" name="contactMessage" placeholder="How can we help?" required minlength="10" maxlength="500"></textarea>
+              <small class="error" id="contactMessageError"></small>
+            </div>
+            <p class="form-error" id="contactFormError" role="alert"></p>
+            <button class="btn btn-primary" type="submit">Send message</button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <div class="toast-area" id="toastArea" aria-live="polite"></div>
+    <footer class="footer">
+      <div class="container">
+        <div class="grid">
+          <div>
+            <a class="logo" href="index.html"><i></i>PaaniLink</a>
+            <p>Water tanker booking, approval and dispatch across the city, run with the City Water Board.</p>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <a href="about.html">About</a>
+            <a href="services.html">Services</a>
+            <a href="contact.html">Contact</a>
+          </div>
+          <div>
+            <h4>Account</h4>
+            <a href="login.html">Login</a>
+            <a href="signup.html">Sign up</a>
+          </div>
+          <div>
+            <h4>Contact</h4>
+            <a href="contact.html">support@paanilink.pk</a>
+            <a href="contact.html">Karachi, Pakistan</a>
+          </div>
+        </div>
+        <div class="copy">&copy; 2026 PaaniLink. All rights reserved.</div>
+      </div>
+    </footer>
+  </body>
+</html>

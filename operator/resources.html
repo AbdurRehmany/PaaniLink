@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tankers and hydrant | PaaniLink</title>
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body>
+    <div class="dash">
+      <aside class="side">
+        <a class="logo" href="../index.html"><i></i>PaaniLink</a>
+        <nav aria-label="Hydrant operator menu">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="bookings.html">Bookings</a>
+          <a href="resources.html" class="active">Tankers and hydrant</a>
+          <a href="../index.html">Back to website</a>
+        </nav>
+        <div class="user">
+          <b id="userName">Loading...</b>
+          <span id="userRole">Hydrant operator</span>
+          <br>
+          <a id="logoutLink" href="../login.html">Log out</a>
+        </div>
+      </aside>
+      <main class="main">
+        <h1>Tankers and hydrant</h1>
+        <p class="welcome">Mark tankers or the whole hydrant as unavailable.</p>
+        <section class="panel">
+          <h2>Hydrant status</h2>
+          <p>Status: <span class="badge" id="hydrantBadge">-</span></p>
+          <p class="hint" id="hydrantInfo">Loading...</p>
+          <form id="hydrantForm" action="#" method="post">
+            <div>
+              <label for="hydrantReason">Reason (needed when marking unavailable)</label>
+              <input id="hydrantReason" name="hydrantReason" type="text" placeholder="e.g. Pump maintenance" maxlength="100">
+              <small class="error" id="hydrantReasonError"></small>
+            </div>
+            <p class="form-error" id="hydrantError" role="alert"></p>
+            <button class="btn btn-danger" type="submit" id="hydrantToggle">Mark hydrant unavailable</button>
+          </form>
+        </section>
+        <section class="panel">
+          <h2>Tankers</h2>
+          <div class="table-wrap">
+            <table>
+              <caption class="sr-only">Tankers at this hydrant</caption>
+              <thead>
+                <tr>
+                  <th>Plate</th>
+                  <th>Size</th>
+                  <th>Status</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody id="tankersBody">
+                <tr class="state">
+                  <td colspan="4">Loading...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </main>
+    </div>
+    <div class="toast-area" id="toastArea" aria-live="polite"></div>
+    <script src="../js/data.js"></script>
+    <script src="../js/app.js"></script>
+  </body>
+</html>

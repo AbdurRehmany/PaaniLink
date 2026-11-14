@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Hydrant bookings | PaaniLink</title>
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body>
+    <div class="dash">
+      <aside class="side">
+        <a class="logo" href="../index.html"><i></i>PaaniLink</a>
+        <nav aria-label="Hydrant operator menu">
+          <a href="dashboard.html">Dashboard</a>
+          <a href="bookings.html" class="active">Bookings</a>
+          <a href="resources.html">Tankers and hydrant</a>
+          <a href="../index.html">Back to website</a>
+        </nav>
+        <div class="user">
+          <b id="userName">Loading...</b>
+          <span id="userRole">Hydrant operator</span>
+          <br>
+          <a id="logoutLink" href="../login.html">Log out</a>
+        </div>
+      </aside>
+      <main class="main">
+        <h1>Bookings</h1>
+        <p class="welcome">Assign a tanker and driver, then record filling and departure.</p>
+        <section class="panel">
+          <h2>Approved bookings for your hydrant</h2>
+          <form class="toolbar" id="obFilter">
+            <div>
+              <label class="sr-only" for="oSearch">Search</label>
+              <input id="oSearch" name="oSearch" type="search" placeholder="Search by ID or address">
+            </div>
+            <div>
+              <label class="sr-only" for="oStatus">Status</label>
+              <select id="oStatus" name="oStatus">
+                <option value="">All statuses</option>
+                <option value="pending-approval">Pending approval</option>
+                <option value="approved">Approved</option>
+                <option value="rejected">Rejected</option>
+                <option value="assigned">Assigned</option>
+                <option value="filled">Filled</option>
+                <option value="on-the-way">On the way</option>
+                <option value="arrived">Arrived</option>
+                <option value="delivered">Delivered</option>
+                <option value="confirmed">Confirmed</option>
+                <option value="disputed">Disputed</option>
+                <option value="failed">Failed</option>
+                <option value="cancelled">Cancelled</option>
+              </select>
+            </div>
+            <div>
+              <label class="sr-only" for="oSort">Sort by</label>
+              <select id="oSort" name="oSort">
+                <option value="date-asc">Earliest first</option>
+                <option value="date-desc">Latest first</option>
+              </select>
+            </div>
+            <button class="btn btn-primary btn-sm" type="submit">Apply</button>
+            <button class="btn btn-line btn-sm" type="reset">Reset</button>
+          </form>
+          <div class="table-wrap">
+            <table>
+              <caption class="sr-only">Hydrant bookings</caption>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Delivery</th>
+                  <th>Size</th>
+                  <th>Zone</th>
+                  <th>Status</th>
+                  <th>Tanker</th>
+                  <th>Driver</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="hydrantBookingsBody">
+                <tr class="state">
+                  <td colspan="8">Loading...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="pager">
+            <button class="btn btn-line btn-sm" type="button" id="oPrev">Previous</button>
+            <span id="oInfo" aria-live="polite">Page 1</span>
+            <button class="btn btn-line btn-sm" type="button" id="oNext">Next</button>
+          </div>
+        </section>
+        <dialog id="detailDialog" aria-labelledby="detailDialogTitle">
+          <h2 id="detailDialogTitle">Booking details</h2>
+          <dl class="detail-list" id="detailDialogList"></dl>
+          <h3>History</h3>
+          <ol class="timeline" id="detailDialogTrail"></ol>
+          <form method="dialog" class="dialog-actions">
+            <button class="btn btn-line" type="submit" formmethod="dialog" formnovalidate>Close</button>
+          </form>
+        </dialog>
+        <dialog id="assignDialog" aria-labelledby="assignDialogTitle">
+          <h2 id="assignDialogTitle">Assign tanker and driver</h2>
+          <form id="assignForm" action="#" method="post">
+            <div>
+              <label for="assignTanker">Tanker</label>
+              <select id="assignTanker" name="assignTanker" required>
+                <option value="">Loading...</option>
+              </select>
+              <small class="error" id="assignTankerError"></small>
+            </div>
+            <div>
+              <label for="assignDriver">Driver</label>
+              <select id="assignDriver" name="assignDriver" required>
+                <option value="">Loading...</option>
+              </select>
+              <small class="error" id="assignDriverError"></small>
+            </div>
+            <p class="hint">Only tankers and drivers that are free for this slot are listed.</p>
+            <p class="form-error" id="assignError" role="alert"></p>
+            <div class="dialog-actions">
+              <button class="btn btn-line" type="submit" formmethod="dialog" formnovalidate>Cancel</button>
+              <button class="btn btn-primary" type="submit">Assign</button>
+            </div>
+          </form>
+        </dialog>
+      </main>
+    </div>
+    <div class="toast-area" id="toastArea" aria-live="polite"></div>
+    <script src="../js/data.js"></script>
+    <script src="../js/app.js"></script>
+  </body>
+</html>

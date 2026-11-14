@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Sign up | PaaniLink</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <header class="nav">
+      <div class="container">
+        <a class="logo" href="index.html"><i></i>PaaniLink</a>
+        <input type="checkbox" id="navtoggle" aria-label="Toggle menu">
+        <label class="burger" for="navtoggle">&#9776;</label>
+        <ul class="menu">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+          <li><a class="btn btn-outline" href="login.html">Login</a></li>
+          <li><a class="btn btn-primary" href="signup.html">Sign up</a></li>
+        </ul>
+      </div>
+    </header>
+    <main class="auth">
+      <div class="auth-side">
+        <h1>Create your account</h1>
+        <p>Sign up once and book water in a few clicks, any time.</p>
+        <ul class="checks">
+          <li>Clear rates before you book</li>
+          <li>Track every delivery</li>
+          <li>Pay bills online</li>
+        </ul>
+      </div>
+      <div class="auth-form">
+        <div class="auth-box">
+          <h2>Sign up</h2>
+          <p>Customer accounts only. Staff accounts are created by an administrator.</p>
+          <form id="signupForm" action="#" method="post">
+            <div>
+              <label for="signupName">Full name</label>
+              <input id="signupName" name="signupName" type="text" placeholder="Your full name" required minlength="3" maxlength="60" autocomplete="name">
+              <small class="error" id="signupNameError"></small>
+            </div>
+            <div class="row">
+              <div>
+                <label for="signupCnic">CNIC</label>
+                <input id="signupCnic" name="signupCnic" type="text" placeholder="13 digits" required inputmode="numeric" pattern="[0-9]{13}" maxlength="13" title="13 digits, no dashes">
+                <small class="error" id="signupCnicError"></small>
+              </div>
+              <div>
+                <label for="signupPhone">Phone</label>
+                <input id="signupPhone" name="signupPhone" type="tel" placeholder="03XXXXXXXXX" required inputmode="numeric" pattern="03[0-9]{9}" maxlength="11" title="Format: 03XXXXXXXXX" autocomplete="tel">
+                <small class="error" id="signupPhoneError"></small>
+              </div>
+            </div>
+            <div>
+              <label for="signupAddress">Address</label>
+              <input id="signupAddress" name="signupAddress" type="text" placeholder="House, street, area" required minlength="8" maxlength="120" autocomplete="street-address">
+              <small class="error" id="signupAddressError"></small>
+            </div>
+            <div>
+              <label for="signupZone">Zone</label>
+              <select id="signupZone" name="signupZone" required>
+                <option value="">Loading zones...</option>
+              </select>
+              <small class="error" id="signupZoneError"></small>
+            </div>
+            <div class="row">
+              <div>
+                <label for="signupPassword">Password</label>
+                <input id="signupPassword" name="signupPassword" type="password" placeholder="At least 8 characters" required minlength="8" autocomplete="new-password">
+                <small class="error" id="signupPasswordError"></small>
+              </div>
+              <div>
+                <label for="signupConfirm">Confirm password</label>
+                <input id="signupConfirm" name="signupConfirm" type="password" placeholder="Repeat password" required minlength="8" autocomplete="new-password">
+                <small class="error" id="signupConfirmError"></small>
+              </div>
+            </div>
+            <p class="form-error" id="signupFormError" role="alert"></p>
+            <button class="btn btn-primary btn-block" type="submit">Create account</button>
+          </form>
+          <p class="auth-foot">Already have an account? <a href="login.html">Log in</a></p>
+        </div>
+      </div>
+    </main>
+    <div class="toast-area" id="toastArea" aria-live="polite"></div>
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

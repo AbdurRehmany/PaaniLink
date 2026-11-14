@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My trips | PaaniLink</title>
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body class="driver">
+    <div class="dash">
+      <aside class="side">
+        <a class="logo" href="../index.html"><i></i>PaaniLink</a>
+        <nav aria-label="Driver menu">
+          <a href="trips.html" class="active">My trips</a>
+          <a href="history.html">Trip history</a>
+          <a href="../index.html">Back to website</a>
+        </nav>
+        <div class="user">
+          <b id="userName">Loading...</b>
+          <span id="userRole">Driver</span>
+          <br>
+          <a id="logoutLink" href="../login.html">Log out</a>
+        </div>
+      </aside>
+      <main class="main">
+        <h1>My trips</h1>
+        <p class="welcome">Only trips assigned to you are shown.</p>
+        <form class="toolbar" id="tripFilter">
+          <div>
+            <label class="sr-only" for="tripStatus">Status</label>
+            <select id="tripStatus" name="tripStatus">
+              <option value="active">Active trips</option>
+              <option value="">All my trips</option>
+              <option value="assigned">Assigned</option>
+              <option value="filled">Filled</option>
+              <option value="on-the-way">On the way</option>
+              <option value="arrived">Arrived</option>
+            </select>
+          </div>
+        </form>
+        <div class="trip-list" id="tripList" aria-live="polite">
+          <p class="hint">Loading trips...</p>
+        </div>
+        <section class="panel">
+          <h2>Route map</h2>
+          <p class="hint">Route from your hydrant to the stops its tankers cover.</p>
+          <iframe class="map" id="routeMap" data-scope="hydrant" title="Route map" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+          <p class="hint"><a id="routeLink" href="#" target="_blank" rel="noopener">Open this route in Google Maps</a></p>
+        </section>
+        <template id="tripTemplate">
+          <article class="trip-card">
+            <header>
+              <h2 data-field="id"></h2>
+              <span class="badge" data-field="status"></span>
+            </header>
+            <dl class="detail-list">
+              <dt>Delivery</dt>
+              <dd data-field="slot"></dd>
+              <dt>Address</dt>
+              <dd data-field="address"></dd>
+              <dt>Size</dt>
+              <dd data-field="size"></dd>
+              <dt>Tanker</dt>
+              <dd data-field="tanker"></dd>
+              <dt>Customer</dt>
+              <dd data-field="customer"></dd>
+            </dl>
+            <div class="trip-actions">
+              <button class="btn btn-primary" type="button" data-action="arrived">Arrived</button>
+              <button class="btn btn-success" type="button" data-action="delivered">Delivered</button>
+              <button class="btn btn-danger" type="button" data-action="failed">Failed</button>
+            </div>
+          </article>
+        </template>
+        <dialog id="failDialog" aria-labelledby="failDialogTitle">
+          <h2 id="failDialogTitle">Delivery failed</h2>
+          <form id="failForm" action="#" method="post">
+            <div>
+              <label for="failReason">Reason</label>
+              <select id="failReason" name="failReason" required>
+                <option value="">Select reason</option>
+                <option value="house-locked">House locked</option>
+                <option value="road-blocked">Road blocked</option>
+                <option value="customer-unreachable">Customer unreachable</option>
+                <option value="other">Other</option>
+              </select>
+              <small class="error" id="failReasonError"></small>
+            </div>
+            <div>
+              <label for="failNote">Details (required for Other)</label>
+              <textarea id="failNote" name="failNote" placeholder="What happened?" maxlength="200"></textarea>
+              <small class="error" id="failNoteError"></small>
+            </div>
+            <p class="form-error" id="failError" role="alert"></p>
+            <div class="dialog-actions">
+              <button class="btn btn-line" type="submit" formmethod="dialog" formnovalidate>Cancel</button>
+              <button class="btn btn-danger" type="submit">Mark failed</button>
+            </div>
+          </form>
+        </dialog>
+      </main>
+    </div>
+    <div class="toast-area" id="toastArea" aria-live="polite"></div>
+    <script src="../js/data.js"></script>
+    <script src="../js/app.js"></script>
+  </body>
+</html>

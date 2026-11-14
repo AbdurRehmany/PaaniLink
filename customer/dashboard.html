@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Customer dashboard | PaaniLink</title>
+    <link rel="stylesheet" href="../css/style.css">
+  </head>
+  <body>
+    <div class="dash">
+      <aside class="side">
+        <a class="logo" href="../index.html"><i></i>PaaniLink</a>
+        <nav aria-label="Customer menu">
+          <a href="dashboard.html" class="active">Dashboard</a>
+          <a href="book.html">Book a tanker</a>
+          <a href="bookings.html">My bookings</a>
+          <a href="bills.html">Bills</a>
+          <a href="subsidy.html">Subsidy</a>
+          <a href="../index.html">Back to website</a>
+        </nav>
+        <div class="user">
+          <b id="userName">Loading...</b>
+          <span id="userRole">Customer</span>
+          <br>
+          <a id="logoutLink" href="../login.html">Log out</a>
+        </div>
+      </aside>
+      <main class="main">
+        <h1>Dashboard</h1>
+        <p class="welcome">Your bookings and subsidy at a glance.</p>
+        <div class="grid g4 stats">
+          <div class="stat">
+            <span>Total bookings</span>
+            <b id="statTotal">-</b>
+          </div>
+          <div class="stat">
+            <span>Active bookings</span>
+            <b id="statActive">-</b>
+          </div>
+          <div class="stat">
+            <span>Confirmed deliveries</span>
+            <b id="statConfirmed">-</b>
+          </div>
+          <div class="stat">
+            <span>Unpaid bills</span>
+            <b id="statUnpaid">-</b>
+          </div>
+        </div>
+        <div class="grid g2">
+          <section class="panel">
+            <h2 id="latestTitle">Latest booking</h2>
+            <div class="tracker" id="tracker">
+              <div class="t" data-step="approved">Approved</div>
+              <div class="t" data-step="assigned">Assigned</div>
+              <div class="t" data-step="on-the-way">On the way</div>
+              <div class="t" data-step="delivered">Delivered</div>
+              <div class="t" data-step="confirmed">Confirmed</div>
+            </div>
+            <p class="hint" id="latestInfo" style="text-align:center;margin-top:14px">Loading...</p>
+          </section>
+          <section class="panel">
+            <h2>Subsidy this month</h2>
+            <p>Status: <span class="badge" id="subsidyBadge">-</span></p>
+            <div class="meter-label">
+              <span>Monthly limit used</span>
+              <span id="limitText">-</span>
+            </div>
+            <div class="meter"><i id="limitBar"></i></div>
+            <p class="hint"><a href="subsidy.html">Manage subsidy</a></p>
+          </section>
+        </div>
+        <section class="panel">
+          <h2>Recent bookings</h2>
+          <div class="table-wrap">
+            <table>
+              <caption class="sr-only">Recent bookings</caption>
+              <thead>
+                <tr>
+                  <th>ID</th>
+                  <th>Date</th>
+                  <th>Size</th>
+                  <th>Type</th>
+                  <th>Status</th>
+                  <th>Price</th>
+                </tr>
+              </thead>
+              <tbody id="recentBody">
+                <tr class="state">
+                  <td colspan="6">Loading...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="hint"><a href="bookings.html">View all bookings</a></p>
+        </section>
+      </main>
+    </div>
+    <div class="toast-area" id="toastArea" aria-live="polite"></div>
+    <script src="../js/data.js"></script>
+    <script src="../js/app.js"></script>
+  </body>
+</html>
